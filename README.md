@@ -1,21 +1,65 @@
-# GraphQL Kotlin Spring Example
+MUTATION: 
 
-One way to run a GraphQL server is with [Spring Boot](https://github.com/spring-projects/spring-boot). This example app uses [Spring Webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) together with `graphql-kotlin` and [graphql-playground](https://github.com/prisma/graphql-playground).
+```graphql
+mutation($prog: ProgInput!) {
+    addProg(prog:$prog) {
+        name
+        type
+            statements {
+                name
+                type
+                args {
+                    name
+                    type
+                }
+            }
+    }
+}
+```
+MUTATION VARIABLE:
 
-### Running locally
-
-First you must build all the other modules since this is a multi-module project.
-
-From the root directory:
-
-```shell script
-mvn clean install
+```graphql
+{
+    "prog":{
+        "name": "sdasdfsdfsdfsdfsa",
+        "type": "sdasda",
+        "statements": [
+        {
+            "name": "stat1",
+            "type": "statt1",
+            "args":[{
+                "name": "Arg03",
+                "type": "003"
+            },
+            {
+                "name": "Arg03",
+                "type": "003"
+            }
+            ]
+        }
+    ]
+    }
+}
 ```
 
-Then to start the server:
+<img src="C:\Users\Barna_Sipiczki\projects\examples\graphqldsl\graphqlkotlindsl\Screenshot 2023-07-07 at 12-31-59 Playground - http __localhost 8080_graphql.png"/>
 
-* Run `Application.kt` directly from your IDE
-* Alternatively you can also use the spring boot maven plugin by running `mvn spring-boot:run` from the command line in the spring example directory.
+QUERY:
 
-Once the app has started you can explore the example schema by opening the GraphQL Playground endpoint at http://localhost:8080/playground.
-
+```graphql
+query GetProg {
+ getProg {
+  name,
+  type,
+ 	statements {
+    name,
+    type,
+    args {
+      name,
+      type
+    }
+  }
+}
+}
+```
+<img src="C:\Users\Barna_Sipiczki\projects\examples\graphqldsl\graphqlkotlindsl\Screenshot 2023-07-07 at 12-31-42 Playground - http __localhost 8080_graphql.png"/>
