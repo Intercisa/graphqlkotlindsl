@@ -1,7 +1,6 @@
 package com.expediagroup.graphql.demo.dsl
 
-import com.expediagroup.graphql.demo.model.Input
-import com.expediagroup.graphql.demo.model.Output
+import com.expediagroup.graphql.demo.model.Args
 import com.expediagroup.graphql.demo.model.Prog
 import com.expediagroup.graphql.demo.model.Statement
 
@@ -10,16 +9,15 @@ annotation class ProgDSL
 
 class StatementBuilder(@property:ProgDSL var name: String, @property:ProgDSL var type: String) {
 
-    private val inputs = mutableListOf<Input>()
-    private val outputs = mutableListOf<Output>()
+    private val args = mutableListOf<Args>()
 
     fun build(): Statement {
-        return Statement(name, type, inputs, outputs)
+        return Statement(name, type, args)
     }
 
     @ProgDSL
     infix fun String.withType(type: String) {
-        inputs.add(Input(this, type))
+        args.add(Args(this, type))
     }
 }
 
