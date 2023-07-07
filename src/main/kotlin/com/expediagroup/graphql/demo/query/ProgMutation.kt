@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component
 
 @Component
 class ProgMutation : Mutation {
-    @GraphQLDescription("modifies Progs so it doesn't have null value")
-    fun addProg(@GraphQLDescription("Prog to be modified") prog: Prog): List<Prog> {
+    @GraphQLDescription("add new Prog to the list")
+    fun addProg(@GraphQLDescription("add new Prog to the list") prog: Prog): List<Prog> {
        return setProgArr(prog)
     }
 }

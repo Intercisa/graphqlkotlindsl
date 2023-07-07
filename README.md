@@ -42,8 +42,6 @@ MUTATION VARIABLE:
 }
 ```
 
-<img src="C:\Users\Barna_Sipiczki\projects\examples\graphqldsl\graphqlkotlindsl\Screenshot 2023-07-07 at 12-31-59 Playground - http __localhost 8080_graphql.png"/>
-
 QUERY:
 
 ```graphql
@@ -62,4 +60,10 @@ query GetProg {
 }
 }
 ```
-<img src="C:\Users\Barna_Sipiczki\projects\examples\graphqldsl\graphqlkotlindsl\Screenshot 2023-07-07 at 12-31-42 Playground - http __localhost 8080_graphql.png"/>
+
+SCHEDULED: 
+```graphql
+query {
+  apps
+}
+```
