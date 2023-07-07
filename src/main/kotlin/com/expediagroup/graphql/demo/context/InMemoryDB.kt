@@ -5,10 +5,7 @@ import com.expediagroup.graphql.demo.model.Prog
 
 private val progs: MutableList<Prog> = arrayListOf()
 
-fun getInMemoryProgs(): MutableList<Prog>{
-    progs.addAll(getProgArr())
-    return progs
-}
+fun getInMemoryProgs(): MutableList<Prog> = progs.apply { addAll(getProgArr()) }
 
 fun getProgArr() = listOf(
     prog {
